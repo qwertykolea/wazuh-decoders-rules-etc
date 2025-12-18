@@ -1,0 +1,34 @@
+<decoder name="Deep Instinct Audit">
+        <prematch>^\d\s(\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ)\s(\d+.\d+.\d+.\d+)\sD-Appliance\s\S\sCEF:0\SDeep Instinct\SD-Appliance\S(\d+.\d+.\d+.\d+)\S</prematch>
+        <type>syslog</type>
+</decoder>
+<decoder name="Deep Instinct Audit">
+        <parent>Deep Instinct Audit</parent>
+        <regex offset="after_parent">(\.+)\p</regex>
+        <order>deep.Type</order>
+</decoder>
+<decoder name="Deep Instinct Audit">
+        <parent>Deep Instinct Audit</parent>
+        <regex type="pcre2">Type: (.*?)\|(.*?)\|</regex>
+        <order>deep.AuditLogType,deep.AuditLogSubType</order>
+</decoder>
+<decoder name="Deep Instinct Audit">
+        <parent>Deep Instinct Audit</parent>
+        <regex>duser=(\.+)\s+</regex>
+        <order>dstuser</order>
+</decoder>
+<decoder name="Deep Instinct Audit">
+        <parent>Deep Instinct Audit</parent>
+        <regex>cs1=(\.*)\s+cs1Label=</regex>
+        <order>deep.AuditLogUserRole</order>
+</decoder>
+<decoder name="Deep Instinct Audit">
+        <parent>Deep Instinct Audit</parent>
+        <regex>cs4=(\.*)\s+cs4Label=</regex>
+        <order>deep.MSPName</order>
+</decoder>
+<decoder name="Deep Instinct Audit">
+        <parent>Deep Instinct Audit</parent>
+        <regex type="pcre2">msg=(.*?)\.(?:\s|$)</regex>
+        <order>deep.msg</order>
+</decoder>

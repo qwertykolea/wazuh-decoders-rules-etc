@@ -1,0 +1,22 @@
+<group name="deepinstinct,security,antivirus,syslog">
+ <rule id="200101" level="5">
+   <decoded_as>Deep Instinct</decoded_as>
+   <field name="deep.Action">Detected</field>
+   <description>Deep Instinct $(deep.Action) $(deep.MitreTechnique) attack on $(deep.Hostname) ($(dstip)) [$(deep.Company)] at $(timestamp) - User: $(dstuser) - FilePath: $(deep.FilePath) - Policy: $(deep.Policy)</description>
+  </rule>
+ <rule id="200102" level="5">
+   <decoded_as>Deep Instinct</decoded_as>
+   <field name="deep.Action">Prevented</field>
+   <description>Deep Instinct $(name) $(deep.Action) $(deep.ThreatType) threat ($(deep.MitreTechnique), $(deep.MitreId)) on $(deep.Hostname)($(dstip)) [$(deep.Company)] - FilePath: $(deep.FilePath) - Policy: $(deep.Policy)</description>
+  </rule>
+   <rule id="200103" level="5">
+   <decoded_as>Deep Instinct Audit</decoded_as>
+   <field name="deep.AuditLogSubType">Sign in</field>
+   <description>Deep Instinct auth: $(deep.msg)</description>
+  </rule>
+   <rule id="200104" level="10">
+   <decoded_as>Deep Instinct Audit</decoded_as>
+   <field name="deep.AuditLogSubType">Failed Login</field>
+   <description>Deep Instinct auth: $(deep.msg)</description>
+  </rule>
+</group>

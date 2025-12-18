@@ -1,0 +1,133 @@
+<decoder name="Deep Instinct">
+        <prematch>^\d\s(\d\d\d\d-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ)\s(\d+.\d+.\d+.\d+)\sD-Appliance\s\S\s\d+\s\S\sCEF:0\SDeep Instinct\SD-Appliance\S(\d+.\d+.\d+.\d+)\S</prematch>
+        <type>syslog</type>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex offset="after_parent">(\.+)_</regex>
+        <order>deep.Type</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>eventExternalId=(\.+)\s+</regex>
+        <order>deep.Id</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>act=(\.+)\s+</regex>
+        <order>deep.Action</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>dhost=(\.+)\s+</regex>
+        <order>deep.Hostname</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>dst=(\.+)\s+</regex>
+        <order>dstip</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>dmac=(\.*)\s+dLoggedInUsers=</regex>
+        <order>deep.Mac</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>dLoggedInUsers=(\.*)\s+duser=</regex>
+        <order>deep.LoggedInUsers</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>duser=(\.*)\s+dGroup=</regex>
+        <order>dstuser</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>dGroup=company\pWIN\p:(\.*)\s+dclientVersion=</regex>
+        <order>deep.Company</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>dclientVersion=(\.*)\s+deviceExternalId=</regex>
+        <order>deep.Version</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>policy=(\.*)\s+start=</regex>
+        <order>deep.Policy</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>externalSeverity=(\.*)\s+processChain=</regex>
+        <order>deep.Severity</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>fileHash=(\.+)\s+</regex>
+        <order>deep.FileHash</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>filePath=(\.*)\s+fileType=</regex>
+        <order>deep.FilePath</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>fileType=(\.*)\s+fname=</regex>
+        <order>deep.FileType</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>fname=(\.*)\s+fileSize=</regex>
+        <order>deep.FileName</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>fileSize=(\.*)\s+cs1=</regex>
+        <order>deep.FileSize</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>cs2=(\.*)\s+cs2Label=</regex>
+        <order>deep.EngineVersion</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>cs3=(\.*)\s+cs3Label=</regex>
+        <order>deep.ThreatType</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>mitreId=(\.*)\s+mitreTactic=</regex>
+        <order>deep.MitreId</order>
+</decoder>
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>mitreTactic=(\.*)\s+mitreTechnique=</regex>
+        <order>deep.MitreTactic</order>
+</decoder>
+
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>mitreTechnique=(\.*)\s+mitreSubTechnique=</regex>
+        <order>deep.MitreTechnique</order>
+</decoder>
+<!-- Нужно больше условий фильтра и это неактуально 
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>mitreSubTechnique=(\.*)\s+cs4=</regex>
+        <order>deep.MitreSubTechnique</order>
+</decoder>
+-->
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>cs4=(\.*)\s+cs4Label=</regex>
+        <order>deep.MSPName</order>
+</decoder>
+
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex>cs6=(\.*)\s+cs6Label=</regex>
+        <order>deep.OS</order>
+</decoder>
