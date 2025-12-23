@@ -29,6 +29,6 @@
 </decoder>
 <decoder name="Deep Instinct Audit">
         <parent>Deep Instinct Audit</parent>
-        <regex type="pcre2">msg=(.*?)\.(?:\s|$)</regex>
+        <regex type="pcre2">msg=(.*?)(?:\.(?:\s|$)|$)</regex>
         <order>deep.msg</order>
 </decoder>
