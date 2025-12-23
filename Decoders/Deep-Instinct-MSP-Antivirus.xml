@@ -131,3 +131,9 @@
         <regex>cs6=(\.*)\s+cs6Label=</regex>
         <order>deep.OS</order>
 </decoder>
+
+<decoder name="Deep Instinct">
+        <parent>Deep Instinct</parent>
+        <regex type="pcre2">msg=(.*?)(?:\.(?:\s|$)|$)</regex>
+        <order>deep.msg</order>
+</decoder>
